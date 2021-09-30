@@ -1,0 +1,73 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/pc/Desktop/information/work/fpga_projects/Sensor/work
+vi2c_controller
+Z1 !s110 1632915014
+!i10b 1
+!s100 0W>OlGCMO0L>PZhnoQEiR3
+IG>laI59oGA1S@LzFa0eJ_1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1503738645
+8C:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_controller.v
+FC:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_controller.v
+L0 4
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1632915013.000000
+!s107 C:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_controller.v|
+!s90 -reportprogress|300|-work|work|C:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_controller.v|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+vi2c_controller_tb
+R1
+!i10b 1
+!s100 0FWao0:MU_bDk?2n5Sk7f0
+IIIdYMzE62@`;ZVTIOla0f1
+R2
+R0
+w1632915003
+8C:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_controller_tb.v
+FC:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_controller_tb.v
+L0 3
+R3
+r1
+!s85 0
+31
+Z6 !s108 1632915014.000000
+!s107 C:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_controller_tb.v|
+!s90 -reportprogress|300|-work|work|C:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_controller_tb.v|
+!i113 1
+R4
+R5
+vi2c_slave_controller
+R1
+!i10b 1
+!s100 7U?CN4T1;X?V?g@HlQ;CC2
+I8]UUGZCFKW^1W2^AmndY=0
+R2
+R0
+w1632914865
+8C:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_slave_controller.v
+FC:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_slave_controller.v
+L0 3
+R3
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_slave_controller.v|
+!s90 -reportprogress|300|-work|work|C:/Users/pc/Desktop/information/work/fpga_projects/Sensor/i2c_slave_controller.v|
+!i113 1
+R4
+R5
