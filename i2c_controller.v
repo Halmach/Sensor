@@ -7,6 +7,8 @@ module i2c_controller(
 	input wire rst,
 	input wire [6:0] addr,
 	input wire [7:0] data_in,
+	input wire [7:0] data_in_2,
+	input wire ena_w_data_2,
 	input wire enable,
 	input wire rw,
 
@@ -26,12 +28,15 @@ module i2c_controller(
 	localparam READ_DATA = 6;
 	localparam READ_ACK2 = 7;
 	localparam STOP = 8;
+	localparam WRITE_DATA_2 = 9;
+	localparam READ_ACK3 = 10;
 	
 	localparam DIVIDE_BY = 4;
 
 	reg [7:0] state;
 	reg [7:0] saved_addr;
 	reg [7:0] saved_data;
+	reg [7:0] saved_data_2;
 	reg [7:0] counter;
 	reg [7:0] counter2 = 0;
 	reg write_enable;
@@ -77,6 +82,7 @@ module i2c_controller(
 						state <= START;
 						saved_addr <= {addr, rw};
 						saved_data <= data_in;
+						saved_data_2 <= data_in_2;
 					end
 					else state <= IDLE;
 				end
@@ -107,6 +113,19 @@ module i2c_controller(
 				end
 				
 				READ_ACK2: begin
+					if (i2c_sda == 0) counter <= 7;
+					if ((i2c_sda == 0) && ena_w_data_2) state <= WRITE_DATA_2;
+					else if ((i2c_sda == 0) && (enable == 1)) state <= IDLE;
+					else state <= STOP;
+				end
+				
+				WRITE_DATA_2: begin
+					if(counter == 0) begin
+						state <= READ_ACK3;
+					end else counter <= counter - 1;
+				end
+				
+				READ_ACK3: begin
 					if ((i2c_sda == 0) && (enable == 1)) state <= IDLE;
 					else state <= STOP;
 				end
@@ -151,6 +170,11 @@ module i2c_controller(
 				WRITE_DATA: begin 
 					write_enable <= 1;
 					sda_out <= saved_data[counter];
+				end
+				
+				WRITE_DATA_2: begin 
+					write_enable <= 1;
+					sda_out <= saved_data_2[counter];
 				end
 				
 				WRITE_ACK: begin
